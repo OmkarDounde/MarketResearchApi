@@ -1,0 +1,11 @@
+{
+    "orderId": 3,
+    "name": "Nikita",
+    "email": "nikki@gmail.com",
+    "address": "Hom 65",
+    "phone": 8934645457,
+    "cost": 391,
+    "menuItem": [
+        3, 65, 12
+    ]
+}
