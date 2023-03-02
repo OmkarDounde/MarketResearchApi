@@ -63,6 +63,19 @@ db.collection('Reportmain').find(query).toArray((err,result) =>{
 })
 })
 
+//New added collection [LReports]
+
+app.get('/LReport',(req,res)=>{    
+    let utt = (req.query.utt)
+    let  query = {}
+    if(utt){
+        query = {category_id:utt}
+    }                  
+db.collection('LReports').find(query).toArray((err,result) =>{
+    if(err) throw err;
+    res.send(result)
+})
+})
 
 //To Get Main Report Reportmain
 
