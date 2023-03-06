@@ -105,6 +105,57 @@ app.post('/sampleForm', (req,res) => {
     })
 })
 
+//to place  Custmization request
+app.post('/Custmizationrequest', (req,res) => {
+    db.collection('CustmizationRequest').insert(req.body,(err,result)=>{
+        if(err) throw err;
+        res.send('Custmization Request Sent Successfully')
+    })
+})
+
+//to place  Inquiry request
+app.post('/Inquiryrequest', (req,res) => {
+    db.collection('InquiryRequest').insert(req.body,(err,result)=>{
+        if(err) throw err;
+        res.send('Inquiry Request Sent Successfully')
+    })
+})
+
+//to receive Custmization request
+app.get('/ViewCustmization', (req,res) => {
+    let email = req.query.email;
+    let query = {};
+    if(email){
+        query ={email:email}
+    }else{
+        query ={}
+    }
+    db.collection('CustmizationRequest').find(query).toArray((err,result) => {
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
+
+//to receive ViewInquiry request
+app.get('/ViewInquiry', (req,res) => {
+    let email = req.query.email;
+    let query = {};
+    if(email){
+        query ={email:email}
+    }else{
+        query ={}
+    }
+    db.collection('InquiryRequest').find(query).toArray((err,result) => {
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
+
+
+
+
 
 //to receive sample request
 app.get('/ViewSample', (req,res) => {
